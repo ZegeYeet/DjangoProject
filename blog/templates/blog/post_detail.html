@@ -1,4 +1,6 @@
 
+<!-- view for looking at a page for a specific post -->
+
 
 {% extends "blog/base.html" %}
 {% block content %}
@@ -6,7 +8,7 @@
         <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
         <div class="media-body">
             <div class="article-metadata">
-                <a class="mr-2" href="#">{{ object.author }}</a>
+                <a class="mr-2" href="{% url 'user-posts' object.author %}">{{ object.author }}</a>
                 <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
                 {% if object.author == user %}
                     <div>
